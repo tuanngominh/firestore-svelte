@@ -34,7 +34,11 @@ export default {
 			browser: true,
 			dedupe: ['svelte']
 		}),
-		commonjs(),
+		commonjs({
+			namedExports: {
+				'node_modules/idb/build/idb.js': ['openDb', 'deleteDb']
+			}
+		}),
 
 		// In dev mode, call `npm run start` once
 		// the bundle has been generated
